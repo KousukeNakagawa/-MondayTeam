@@ -1,3 +1,1 @@
 # TeamKame
-
-TEST
