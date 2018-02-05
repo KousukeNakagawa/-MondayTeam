@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf8'>
+	<title>LoginScene</title> 
+	<link ref="stylesheet" href='style.css'>
+</head>
+<body>
+
+<!-- 通信結果をここに表示 -->
+<div id="canvas"></div>
+
+<form>
+	<input type="text" id="id">
+	<button type="button" id="getHello">Login</button>
+</form>
+
+<section id="window">
+  <h1>Login</h1>
+  <script>
+		var canvas = document.querySelector("#canvas");
+		var hello  = document.querySelector("#getHello");
+		hello.addEventListener("click", function(){
+		var kaisuu = document.querySelector("#id").value;
+		var request = new XMLHttpRequest();
+		request.open('GET', 'http://localhost/Login.php?id='+id, false);
+		request.onload = function() {
+			if (request.status === 200) {
+				var response = request.responseText;
+				var json     = JSON.parse(response);
+			
+				var str="プレイヤーID:";
+				canvas.innerHTML = str;
+			}
+		};
+			request.onerror = function() {
+			//エラー時の処理
+			canvas.innerHTML = "Error!";
+		};
+		//送信
+		request.send();		//POSTの場合は引数に文字列を渡す
+	);
+  </script>
+</section>
+  
+  
+</body>
+</html>

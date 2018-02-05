@@ -8,14 +8,14 @@ $dbh = new PDO('mysql;dbname=TowerBattle;host=localhost',
 #idを取得 
 $playerid=$id;
 
-if($id==2){
+if($id%2==0){
 	$playerid=$playerid-1;
 }
 else{
 	$playerid=$playerid+1;
 }
 
-# プレイヤー情報
+# プレイヤー番号
 $sql = "SELECT currentObj,nextObj,score FROM Player WHERE id=$playerid";
 $sth = $dbh->prepare($sql); 
 $sth->execute();  //実行
