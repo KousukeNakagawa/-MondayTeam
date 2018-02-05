@@ -5,7 +5,7 @@
 	
 	function receive_json($data){
 		#ヘッダーを指定
-		header("Content-Type: application/json; charset=utf-8");
+		header('Access-Control-Allow-Origin: *');
 		#JSON形式のデータを出力する
 		echo $data;		
 	}
